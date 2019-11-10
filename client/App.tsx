@@ -7,6 +7,7 @@ import Ablauf from "./Ablauf"
 import Location from "./Location"
 import Kapelle from "./Kapelle"
 import Playlist from "./Playlist"
+import Fotos from "./Fotos"
 
 //@ts-ignore
 let config = window.config as {
@@ -26,6 +27,7 @@ export default class Client extends React.Component{
 			<Kapelle googleKey={config.googleKey}/>
 			<Signup/>
 			<Playlist playlistId={config.playlistId}/>
+			<Fotos/>
 		</App>)
 	}
 }

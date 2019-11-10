@@ -47,7 +47,7 @@ let config = new Configuration()
 let app = new Koa()
 app.use(mount("/public",Static(path.resolve(__dirname,"./public"))))
 let router = new Router()
-	.get("/",makeIndexPage(config.playlistId))
+	.get("/",makeIndexPage(config.youtubeKey,config.playlistId))
 	.post("/api/signup",makeSignup(config.email))
 	.get("/api/songs",makeFindSongs(config.youtubeKey))
 	.post("/api/songs",makeAddSong({
@@ -56,7 +56,7 @@ let router = new Router()
 		client_secret: config.client_secret,
 		refresh_token: config.refresh_token
 	}))
-	
+
 app.use(router.middleware())
 app.listen(config.port)
 

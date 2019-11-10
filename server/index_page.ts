@@ -1,5 +1,5 @@
 import {Context} from "koa"
-export default (playlistId: string)=>async (ctx:Context)=>{
+export default (googleKey: string, playlistId: string)=>async (ctx:Context)=>{
 	ctx.body = 
 `<!doctype html>
 <html>
@@ -22,7 +22,7 @@ export default (playlistId: string)=>async (ctx:Context)=>{
 	<body>
 		<div id="container"></div>
 		<script>
-			window.config = ${JSON.stringify({playlistId:playlistId})}
+			window.config = ${JSON.stringify({googleKey,playlistId})}
 		</script>
 		<script src="/public/client.js"></script>
 	</body>

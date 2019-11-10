@@ -28,4 +28,7 @@ export default ()=><Page title="Location" name="location">
 		Swiss-Chalet Lodge oder auf unserer eigenen
 		Homepage.
 	</Paragraph>
+	<Paragraph>
+		<img src="/public/swisschalet.jpg"/>
+	</Paragraph>
 </Page>

@@ -4,15 +4,41 @@ import mount from "koa-mount"
 import * as fs from "fs"
 import path from "path"
 import Router from "koa-router"
-import signup from "./signup"
-import { sign } from "crypto"
+import makeIndexPage from "./index_page"
+import makeSignup from "./signup"
+import makeFindSongs from "./find_songs"
+import makeAddSong from "./add_song"
 
 class Configuration{
-	c = JSON.parse(fs.readFileSync("./config.json")+"") as {
-		port?: Number
+	private c = JSON.parse(fs.readFileSync("./config.json")+"") as {
+		port?: number,
+		email: string,
+		youtubeKey: string,
+		playlistId: string,
+		client_id: string,
+		client_secret: string,
+		refresh_token: string
 	}
 	get port(){
 		return this.c.port || 80
+	}
+	get email(){
+		return this.c.email
+	}
+	get youtubeKey() {
+		return this.c.youtubeKey
+	}
+	get playlistId(){
+		return this.c.playlistId
+	}
+	get client_id(){
+		return this.c.client_id;
+	}
+	get client_secret(){
+		return this.c.client_secret;
+	}
+	get refresh_token(){
+		return this.c.refresh_token;
 	}
 }
 
@@ -21,35 +47,16 @@ let config = new Configuration()
 let app = new Koa()
 app.use(mount("/public",Static(path.resolve(__dirname,"./public"))))
 let router = new Router()
-	.post("/api/signup",signup)
-	.get("/",async ctx=>{
-		ctx.body = 
-	`<!doctype html>
-	<html>
-		<head>
-			<title>Sabrina und David heiraten</title>
-			<meta name="viewport" content="width=700, initial-scale=1, maximum-scale=1">
-			<style>
-				@font-face {
-					font-family: "font";
-					src: url("/public/font.woff") format('woff');
-				}
-				body,html{
-					margin:0px;
-					padding:0px;
-					background:grey;
-					font-family:font;
-				}
-			</style>
-		</head>
-		<body>
-			<div id="container"></div>
-			<script src="/public/client.js"></script>
-		</body>
-	</html>
-	`
-	})
-
+	.get("/",makeIndexPage(config.playlistId))
+	.post("/api/signup",makeSignup(config.email))
+	.get("/api/songs",makeFindSongs(config.youtubeKey))
+	.post("/api/songs",makeAddSong({
+		playlistId: config.playlistId,
+		client_id: config.client_id,
+		client_secret: config.client_secret,
+		refresh_token: config.refresh_token
+	}))
+	
 app.use(router.middleware())
 app.listen(config.port)
 

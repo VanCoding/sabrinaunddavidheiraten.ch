@@ -4,8 +4,8 @@ import {Page, Paragraph} from "./components"
 
 let EntryContainer = styled.div`
 	display: flex;
-	height: 80px;
-	line-height: 80px;
+	height: 60px;
+	line-height: 60px;
 `
 let EntryTime = styled.div`
 `
@@ -31,6 +31,6 @@ export default ()=><Page title="Ablauf" name="ablauf">
 	<Entry time="17:00" icon="bus2.svg" text="Gemeinsame Reise nach Merlischachen"/>
 	<Entry time="17:30" icon="glasses.svg" text="Get together"/>
 	<Entry time="18:30" icon="cake.svg" text="Abendunterhaltung"/>
-	<Entry time="0:00" icon="beer.svg" text="Barbetrieb in der Chalet-Bar"/>
-	<Entry time="4:00" icon="bed.svg" text="Nachtruhe"/>
+	<Entry time="00:00" icon="beer.svg" text="Barbetrieb in der Chalet-Bar"/>
+	<Entry time="04:00" icon="bed.svg" text="Nachtruhe"/>
 </Page>

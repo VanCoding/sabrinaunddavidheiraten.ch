@@ -7,12 +7,12 @@ let transport = nodemailer.createTransport(directTransport({
 	name: "sabrinaunddavidheiraten.ch"
 }))
 
-export default async (ctx: Context)=>{
+export default (email:string)=>async (ctx: Context)=>{
 	let {firstname,lastname,fest,allergien,vegetarier,zimmer} = await json(ctx)
 
 	await transport.sendMail({
 		from: "webseite@sabrinaunddavidheiraten.ch",
-		to: "david.mieschbuehler@gmail.com",
+		to: email,
 		subject: "Hochzeitsanmeldung",
 		text: 
 `Die folgende Person hat sich soeben für die Hochzeit angemeldet:

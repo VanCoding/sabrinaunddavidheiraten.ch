@@ -23,7 +23,7 @@ export default class Client extends React.Component{
 			<Menu/>
 			<Infos/>
 			<Ablauf/>
-			<Location/>
+			<Location googleKey={config.googleKey}/>
 			<Kapelle googleKey={config.googleKey}/>
 			<Signup/>
 			<Playlist playlistId={config.playlistId}/>

@@ -1,11 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import Tile, {SideType} from "./Tile"
+import {grey} from "./components"
 
 const Menu = styled.div`
 	margin-top: 10px;
 	margin: auto;
-	background-color:white;
+	background-color:${grey};
 	background-image: url(public/logo.svg);
 	background-position:center;
 	background-size:contain;
@@ -49,7 +50,7 @@ interface TileGridEntry{
 	link: string
 }
 
-export default ()=><TileGrid width={7} height={4} tileWidth={100}>{[
+export default ()=><TileGrid width={7} height={5} tileWidth={100}>{[
 	{x:0,y:1,text:"Location",link:"location"},
 	{x:0,y:3,text:"Musik",link:"musik"},
 	{x:1,y:0,text:"Wichtige Infos",link:"infos"},

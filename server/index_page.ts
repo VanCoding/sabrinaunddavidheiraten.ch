@@ -14,7 +14,7 @@ export default (googleKey: string, playlistId: string)=>async (ctx:Context)=>{
 			body,html{
 				margin:0px;
 				padding:0px;
-				background:grey;
+				background:#660202;
 				font-family:font;
 			}
 		</style>

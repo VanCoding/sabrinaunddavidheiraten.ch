@@ -1,20 +1,7 @@
 import React from "react"
-import {Page, Paragraph} from "./components"
-import Map,{Maps} from "google-map-react"
+import {Page, Paragraph,LinkButton} from "./components"
+import Map from "./Map"
 
-let location = {lat:47.0808781,lng:8.3796056}
-
-let Marker = (props:{lat:number,lng:number,text:string})=><div>{props.text}</div>
-
-function getMapOptions(maps: Maps){
-	return {
-		mapTypeId: maps.MapTypeId.SATELLITE,
-	}
-}
-
-function handleApiLoaded(map: any, maps: Maps){
-
-}
 
 export default (props:{googleKey: string})=>(
 	<Page title="Kapelle" name="kapelle">
@@ -25,23 +12,10 @@ export default (props:{googleKey: string})=>(
 			Kapelle St. Jost im Dottenberg, Adligenswil
 		</Paragraph>
 		<Paragraph>
-			<div style={{height:"400px",width:"100%"}}>
-				<Map
-					options={getMapOptions}
-					bootstrapURLKeys={{key:props.googleKey}}
-					defaultCenter={location}
-					defaultZoom={18}
-					yesIWantToUseGoogleMapApiInternals
-					onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-				>
-					
-					<Marker 
-						lat={location.lat}
-						lng={location.lng}
-						text=""
-					/>
-				</Map>
-			</div>
+			<Map lat={47.0808781} lng={8.3796056} googleKey={props.googleKey} height="400px" />
+			<br/>
+			<LinkButton href="https://www.google.ch/maps/dir//Kapelle+St.+Jost,+Dottenbergstrasse+2,+6043+Adligenswil/@47.0801322,8.3728085,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x478ffebf02397115:0xa32837d4d816a5fc!2m2!1d8.3796927!2d47.0808734!3e0">Navigieren</LinkButton>
+			<div style={{clear:"both"}}/>
 		</Paragraph>
 		<Paragraph>
 			Bereits unsere beiden Elternpaare haben sich hier das Ja-Wort gegeben. Aus diesem emotionalen

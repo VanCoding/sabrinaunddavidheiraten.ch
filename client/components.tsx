@@ -1,5 +1,7 @@
 import React from "react"
-import styled from "styled-components"
+import styled,{css} from "styled-components"
+
+export const grey = "#eee"
 
 export const Paragraph = styled.p`
 &>img{
@@ -15,7 +17,7 @@ export const SubTitle = styled.h2`
 const PageTag = styled.section`
 	width:700px;
 	margin:auto;
-	background:#ccc;
+	background:${grey};
 	padding:20px;
 	box-sizing:border-box;
 	margin-top:10px;
@@ -25,7 +27,7 @@ export const Page = ({title,name,children}:{title:string,name:string,children:Re
 	{children}
 </PageTag>
 
-export const Button = styled.button`
+const buttonStyle = css`
 	background-color: #a60000;
 	padding:10px;
 	border-radius:10px;
@@ -39,6 +41,15 @@ export const Button = styled.button`
 		background-color: #c70202;
 	}
 `
+
+export const Button = styled.button`
+	${buttonStyle}
+`
+export const LinkButton = styled.a`
+	${buttonStyle}
+	text-decoration:none;
+`
+
 const FormLineContainer = styled.div`
 	display:flex;
 	margin-bottom:20px;

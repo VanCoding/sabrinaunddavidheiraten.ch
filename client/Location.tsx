@@ -1,7 +1,8 @@
 import React from "react"
-import {Page,Paragraph} from "./components"
+import {Page,Paragraph,LinkButton} from "./components"
+import Map from "./Map"
 
-export default ()=><Page title="Location" name="location">
+export default (props:{googleKey:string})=><Page title="Location" name="location">
 	<Paragraph>
 		Wir feiern im Swiss-Chalet in Merlischachen.
 	</Paragraph>
@@ -23,12 +24,11 @@ export default ()=><Page title="Location" name="location">
 		gehört.
 	</Paragraph>
 	<Paragraph>
-		Weitere Informationen zur Location erfährt
-		ihr entweder auf der Hompage vom Hotel
-		Swiss-Chalet Lodge oder auf unserer eigenen
-		Homepage.
+		<img src="/public/swisschalet.jpg"/>
 	</Paragraph>
 	<Paragraph>
-		<img src="/public/swisschalet.jpg"/>
+		<br/>
+		<LinkButton href="https://www.google.com/maps/dir//Swiss-Chalet+Lodge,+Luzernerstrasse+204,+6402+Merlischachen/@47.0657465,8.407174,18z/data=!4m9!4m8!1m0!1m5!1m1!1s0x478fff2c77758729:0x98d5e2c97ced4334!2m2!1d8.4077587!2d47.0656789!3e0">Navigieren</LinkButton>
+		<div style={{clear:"both"}}/>
 	</Paragraph>
 </Page>

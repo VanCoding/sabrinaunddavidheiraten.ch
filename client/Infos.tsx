@@ -37,6 +37,6 @@ export default ()=><Page title="Wichtige Infos" name="infos">
 	</Paragraph>
 	<Paragraph>
 		<SubTitle>Tätschmeister</SubTitle>
-		Marco Rast, 079 409 52 30
+		Marco Rast, 079 409 52 30, marco.rast_93@hotmail.com
 	</Paragraph>
 </Page>

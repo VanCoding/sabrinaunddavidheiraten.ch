@@ -3,6 +3,11 @@ import styled,{css} from "styled-components"
 
 export const grey = "#eee"
 
+export const Container = styled.div`
+	width:700px;
+	margin:auto;
+`
+
 export const Paragraph = styled.p`
 &>img{
 	width:100%;
@@ -15,8 +20,6 @@ export const SubTitle = styled.h2`
 `
 
 const PageTag = styled.section`
-	width:700px;
-	margin:auto;
 	background:${grey};
 	padding:20px;
 	box-sizing:border-box;
@@ -92,7 +95,7 @@ export function BoolFormLine(props:{label:string,type:string,value:boolean,onCha
 
 export const Alert = styled.div<{type:string}>`
 	color:white;
-	background: ${props=>props.type=="danger"?"#c94508":props.type=="warning"?"#dbac1d":"#9bb832"}
+	background: ${props=>props.type=="danger"?"#c94508":props.type=="warning"?"#dbac1d":"#9bb832"};
 	padding:10px;
 	border-radius:10px;
 	margin-top:10px;

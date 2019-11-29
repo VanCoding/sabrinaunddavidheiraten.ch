@@ -36,6 +36,8 @@ function TileGrid({width,height,tileWidth,children}:{width:number,height:number,
 						right = {x==width-1?SideType.Straight:xType}
 						width = {tileWidth}
 						link = {child&&child.link}
+						translateX = {child&&child.translateX}
+						translateY = {child&&child.translateY}
 					>{child&&child.text}</Tile>
 				})}
 			</TileLine>
@@ -47,16 +49,18 @@ interface TileGridEntry{
 	x:number,
 	y:number,
 	text: string,
-	link: string
+	link: string,
+	translateY?: number,
+	translateX?: number
 }
 
 export default ()=><TileGrid width={7} height={5} tileWidth={100}>{[
 	{x:0,y:1,text:"Location",link:"location"},
 	{x:0,y:3,text:"Musik",link:"musik"},
-	{x:1,y:0,text:"Wichtige Infos",link:"infos"},
+	{x:1,y:0,text:"Wichtige Infos",link:"infos",translateY:20},
 	{x:1,y:2,text:"Fotos",link:"photos"},
 	{x:5,y:0,text:"Anmeldung",link:"anmeldung"},
 	{x:6,y:1,text:"Kapelle",link:"kapelle"},
 	{x:5,y:2,text:"Ablauf",link:"ablauf"},
-	{x:6,y:3,text:"Tätschmeister",link:"infos"},
+	{x:6,y:3,text:"Tätschmeister",link:"infos",translateX:0},
 ]}</TileGrid>

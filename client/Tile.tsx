@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { number } from "prop-types"
 
 interface Point{
 	x: Number,
@@ -143,7 +144,9 @@ interface TileProps{
 	right:SideType,
 	bottom:SideType,
 	left:SideType,
-	link?: string
+	link?: string,
+	translateX?: number,
+	translateY?: number
 }
 
 let TileContainer = styled.div`
@@ -159,12 +162,14 @@ let TileTextContainer = styled.div`
 	display:flex;
 	pointer-events:none;
 `
-let TileText = styled.div`
+let TileText = styled.div<{translateX?:number,translateY?:number}>`
 	margin:auto;
 	color:black;
 	text-align:center;
 	font-size:13px;
 	font-style:italic;
+	margin-top: ${p=>p.translateY?p.translateY+"px":'auto'};
+	margin-left: ${p=>p.translateX?p.translateX+"px":"auto"};
 `
 
 export default class Tile extends React.Component<TileProps>{
@@ -190,7 +195,7 @@ export default class Tile extends React.Component<TileProps>{
 				/>
 			</svg>
 			{children&&<TileTextContainer>
-				<TileText>{children}</TileText>
+				<TileText translateY={this.props.translateY} translateX={this.props.translateX}>{children}</TileText>
 			</TileTextContainer>}
 		</TileContainer>
 	}

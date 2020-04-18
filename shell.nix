@@ -4,4 +4,7 @@ mkShell{
 	buildInputs = [
 		nodejs-10_x
 	];
+	shellHook = ''
+        export PATH="$PWD/node_modules/.bin/:$PATH"
+    '';
 }

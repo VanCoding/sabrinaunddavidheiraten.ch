@@ -1,6 +1,6 @@
 {
   "name": "sabrinaunddavidheiraten.ch",
-  "version": "1.0.6",
+  "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "date-fns": "^2.8.1",
     "duration-fns": "^2.0.0",
     "google-map-react": "^1.1.5",
+    "gulp-cli": "^2.2.0",
     "koa": "^2.10.0",
     "koa-compose": "^4.1.0",
     "koa-mount": "^4.0.0",
@@ -37,10 +38,10 @@
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
     "@types/styled-components": "^4.1.19",
+    "browserify": "^16.5.0",
     "fs-extra": "^8.1.0",
     "gulp": "^4.0.2",
     "gulp-typescript": "^5.0.1",
-    "browserify": "^16.5.0",
     "promisepipe": "^3.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

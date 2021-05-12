@@ -19,7 +19,7 @@
     "koa-mount": "^4.0.0",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
-    "nodemailer": "^6.3.1",
+    "nodemailer": "^6.4.16",
     "nodemailer-direct-transport": "^3.3.2",
     "use-interval": "^1.1.0"
   },
